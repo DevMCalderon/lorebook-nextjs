@@ -11,3 +11,16 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+model Entity {
+  id        String   @id @default(cuid())
+  name      String
+  type      String // "personaje", "nacion", "objeto"... texto libre
+  content   Json // la "caja de LEGO" completa (array de bloques de BlockNote)
+  plainText String   @db.Text // el "post-it" con puro texto, para buscar rápido
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([type])
+}
