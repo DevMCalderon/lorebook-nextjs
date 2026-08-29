@@ -8,6 +8,8 @@ import "@blocknote/core/fonts/inter.css";
 import "@blocknote/mantine/style.css";
 import { useRouter } from "next/navigation";
 import { createEntity, updateEntity } from "@/app/actions";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 type Props = {
   entityId?: string;
@@ -36,7 +38,7 @@ export function EntityEditorInner({
       await updateEntity(entityId, name, editor.document);
     } else {
       const newId = await createEntity(name, editor.document);
-      router.push(`/fichas/${newId}`);
+      router.push(`/entities/${newId}`);
       return;
     }
 
@@ -45,19 +47,16 @@ export function EntityEditorInner({
 
   return (
     <div>
-      <input
+      <Input
         type="text"
         value={name}
         onChange={(e) => setName(e.target.value)}
         placeholder="Entity name"
-        className="mb-4 w-full text-xl font-semibold border-b pb-2 outline-none"
+        className="mb-4 text-xl font-semibold"
       />
-      <button
-        onClick={handleSave}
-        className="mb-4 px-4 py-2 bg-black text-white rounded"
-      >
+      <Button onClick={handleSave} className="mb-4">
         {status === "saving" ? "Saving..." : "Save"}
-      </button>
+      </Button>
       <BlockNoteView editor={editor} />
     </div>
   );

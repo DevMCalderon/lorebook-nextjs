@@ -1,14 +1,24 @@
 import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 type Props = {
   href?: string;
   label?: string;
 };
 
-export function BackLink({ href = "/", label = "Back to my entities" }: Props) {
+export function BackLink({ href = "/", label = "Go back" }: Props) {
   return (
-    <Link href={href} className="text-gray-500 hover:underline">
-      ← {label}
-    </Link>
+    <Button
+      variant="ghost"
+      size="default"
+      nativeButton={false}
+      render={
+        <Link href={href}>
+          <ArrowLeft className="size-4" />
+          {label}
+        </Link>
+      }
+    ></Button>
   );
 }

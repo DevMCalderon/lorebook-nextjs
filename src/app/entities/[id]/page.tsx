@@ -15,7 +15,7 @@ export default async function EntityPage({
   if (!entity) notFound();
 
   return (
-    <main className="max-w-3xl mx-auto py-10 px-4">
+    <>
       <BackLink />
       <div className="mt-4">
         <EntityEditor
@@ -24,6 +24,6 @@ export default async function EntityPage({
           initialContent={entity.content as Block[]}
         />
       </div>
-    </main>
+    </>
   );
 }
