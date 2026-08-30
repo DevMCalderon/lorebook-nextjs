@@ -15,6 +15,13 @@ import { Input } from "@/components/ui/input";
 import { BackLink } from "@/components/back-link";
 import Link from "next/link";
 import { Button } from "./ui/button";
+import {
+  LoaderCircle,
+  MessageCircleMore,
+  RotateCcwClock,
+  SaveCheck,
+  SaveOff,
+} from "lucide-react";
 
 type Props = {
   entityId?: string;
@@ -95,16 +102,38 @@ export function EntityEditorInner({
           nativeButton={false}
           className="text-base"
           render={
-            <Link href={`/entities/${entityId}/history`}>Version history</Link>
+            <Link href={`/entities/${entityId}/history`}>
+              <RotateCcwClock className="size-4" /> Version history
+            </Link>
           }
         ></Button>
 
-        <span className="text-gray-500 whitespace-nowrap px-2.5">
-          {status === "idle" && "Saved"}
-          {status === "saving" && "Saving..."}
-          {status === "saved" && "Saved"}
-          {status === "unsaved" && "Unsaved changes"}
-        </span>
+        <div className="flex gap-2 items-center text-gray-500 whitespace-nowrap px-2.5">
+          {status === "idle" && (
+            <>
+              <MessageCircleMore className="size-4" />
+              No new changes
+            </>
+          )}
+          {status === "saving" && (
+            <>
+              <LoaderCircle className="size-4" />
+              Saving...
+            </>
+          )}
+          {status === "saved" && (
+            <>
+              <SaveCheck className="size-4" />
+              Saved
+            </>
+          )}
+          {status === "unsaved" && (
+            <>
+              <SaveOff className="size-4" />
+              Unsaved changes
+            </>
+          )}
+        </div>
       </div>
       <Input
         type="text"

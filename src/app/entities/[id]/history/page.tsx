@@ -6,6 +6,7 @@ import {
 import { BackLink } from "@/components/back-link";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { ArchiveRestore } from "lucide-react";
 import { notFound, redirect } from "next/navigation";
 
 export default async function HistoryPage({
@@ -43,17 +44,17 @@ export default async function HistoryPage({
       <ul className="space-y-2">
         {versions.map((v) => (
           <li key={v.id}>
-            <Card className="p-4 flex items-center justify-between">
+            <Card className="p-4 flex items-center justify-between flex-row">
               <div>
-                <p className="font-medium">{v.name}</p>
-                <p className="text-sm text-gray-400">
+                <p className="font-medium text-xl">{v.name}</p>
+                <p className="text-base text-gray-400">
                   {v.createdAt.toLocaleString()}
                 </p>
               </div>
               <form action={handleRestore}>
                 <input type="hidden" name="versionId" value={v.id} />
-                <Button type="submit" variant="outline" size="sm">
-                  Restore
+                <Button type="submit" variant="outline" className="text-base">
+                  <ArchiveRestore className="size-4" /> Restore
                 </Button>
               </form>
             </Card>
