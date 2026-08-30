@@ -10,6 +10,8 @@ import { useRouter } from "next/navigation";
 import { createEntity, updateEntity } from "@/app/actions";
 import { Input } from "@/components/ui/input";
 import { BackLink } from "@/components/back-link";
+import Link from "next/link";
+import { Button } from "./ui/button";
 
 type Props = {
   entityId?: string;
@@ -83,7 +85,18 @@ export function EntityEditorInner({
     <div className="mb-4">
       <div className="flex justify-center items-center mb-4 gap-4">
         <BackLink />
-        <span className="text-gray-500 whitespace-nowrap">
+
+        <Button
+          variant="ghost"
+          size="default"
+          nativeButton={false}
+          className="text-base"
+          render={
+            <Link href={`/entities/${entityId}/history`}>Version history</Link>
+          }
+        ></Button>
+
+        <span className="text-gray-500 whitespace-nowrap px-2.5">
           {status === "idle" && "Saved"}
           {status === "saving" && "Saving..."}
           {status === "saved" && "Saved"}
