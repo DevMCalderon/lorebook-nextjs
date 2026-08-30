@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getEntities } from "./actions";
+import { getEntities } from "@/app/entities/actions/entity-actions";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 

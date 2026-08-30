@@ -1,4 +1,8 @@
-import { getEntity, getEntityVersions, restoreVersion } from "@/app/actions";
+import { getEntity } from "@/app/entities/actions/entity-actions";
+import {
+  getEntityVersions,
+  restoreVersion,
+} from "@/app/entities/actions/version-actions";
 import { BackLink } from "@/components/back-link";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";

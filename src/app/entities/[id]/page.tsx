@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getEntity } from "@/app/actions";
+import { getEntity } from "@/app/entities/actions/entity-actions";
 import { EntityEditor } from "@/components/entity-editor";
 import type { Block } from "@blocknote/core";
 

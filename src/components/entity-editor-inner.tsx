@@ -7,7 +7,10 @@ import type { Block } from "@blocknote/core";
 import "@blocknote/core/fonts/inter.css";
 import "@blocknote/mantine/style.css";
 import { useRouter } from "next/navigation";
-import { createEntity, updateEntity } from "@/app/actions";
+import {
+  createEntity,
+  updateEntity,
+} from "@/app/entities/actions/entity-actions";
 import { Input } from "@/components/ui/input";
 import { BackLink } from "@/components/back-link";
 import Link from "next/link";
