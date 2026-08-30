@@ -2,7 +2,6 @@ import { notFound } from "next/navigation";
 import { getEntity } from "@/app/actions";
 import { EntityEditor } from "@/components/entity-editor";
 import type { Block } from "@blocknote/core";
-import { BackLink } from "@/components/back-link";
 
 export default async function EntityPage({
   params,
@@ -16,7 +15,6 @@ export default async function EntityPage({
 
   return (
     <>
-      <BackLink />
       <div className="mt-4">
         <EntityEditor
           entityId={entity.id}

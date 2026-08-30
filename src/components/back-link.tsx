@@ -13,6 +13,7 @@ export function BackLink({ href = "/", label = "Go back" }: Props) {
       variant="ghost"
       size="default"
       nativeButton={false}
+      className="text-base"
       render={
         <Link href={href}>
           <ArrowLeft className="size-4" />
